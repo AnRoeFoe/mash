@@ -65,7 +65,9 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 	case tea.KeyMsg:
 		switch msg.String() {
 		case "ctrl+c", "q":
-			return m, tea.Quit
+			if m.list.FilterState() != list.Filtering {
+				return m, tea.Quit
+			}
 		case "enter":
 			if m.list.FilterState() != list.Filtering {
 				i, ok := m.list.SelectedItem().(item)
