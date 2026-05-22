@@ -96,6 +96,8 @@ func main() {
 	m.list.AdditionalShortHelpKeys = func() []key.Binding { return []key.Binding{keyMap.Choose} }
 	m.list.AdditionalFullHelpKeys = func() []key.Binding { return []key.Binding{keyMap.Choose} }
 	m.list.Title = "mash"
+	m.list.SetShowTitle(false)
+	m.list.InfiniteScrolling = true
 
 	p := tea.NewProgram(m, tea.WithAltScreen())
 
