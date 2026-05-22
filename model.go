@@ -73,7 +73,7 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 				i, ok := m.list.SelectedItem().(item)
 				if ok {
 					m.choice = i.cmd
-					m.quitting = true
+					m.quitting = false
 					return m, openCommand(i.cmd)
 				}
 			}
