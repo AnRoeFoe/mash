@@ -111,5 +111,5 @@ func openCommand(com string) tea.Cmd {
 	if isWindows() {
 		return tea.ExecProcess(exec.Command("cmd", "/C", com), nil)
 	}
-	return tea.ExecProcess(exec.Command("sh", "-c", com), nil)
+	return tea.ExecProcess(exec.Command("sh", "-c", fmt.Sprintf("%s && exec $SHELL", com)), nil)
 }
